@@ -87,6 +87,7 @@ DopFlow/
 ├── demo/
 │   └── sample_manifest.json  # Location and checksums of the demo files
 ├── assets/                   # README figures
+├── LICENSE
 └── requirements.txt
 ```
 
@@ -152,6 +153,10 @@ The paper uses seeds 0, 1 and 2. Results can vary slightly with hardware and lib
 ## What is not included
 
 This repository covers DopFlow only. It does not include the dataset, weights for other folds and seeds, the baseline reimplementations, or the scripts for the paper's analyses, tables and figures.
+
+## License
+
+The code is released under the [MIT License](LICENSE). The license does not cover the WiFlow dataset, which is downloaded from its authors. The included weights were trained on that dataset, so its terms may also apply to them.
 
 ## Acknowledgments
 
