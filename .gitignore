@@ -8,3 +8,6 @@ results/
 *.pth
 *.npy
 *.npz
+demo_data/
+/demo_output.png
+!weights/*.pth

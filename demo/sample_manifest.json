@@ -1,0 +1,40 @@
+{
+ "url": "https://download.visinf.tu-darmstadt.de/data/wiflow/WiFlow.zip",
+ "subject": "S05",
+ "action": "A17",
+ "frame": 90,
+ "files": [
+  {
+   "member": "WiFlow/birdviewplus/S05/A17/csi/frame089.pt",
+   "method": 8,
+   "compressed": 871017,
+   "size": 1460385,
+   "offset": 30337349491,
+   "sha256": "78b70f7d5f8b968e8fd1f25f0ea62e523786f8de6e56db80169017ee95d217b1"
+  },
+  {
+   "member": "WiFlow/birdviewplus/S05/A17/csi/frame090.pt",
+   "method": 8,
+   "compressed": 871022,
+   "size": 1460385,
+   "offset": 30338220581,
+   "sha256": "25f1a1e8cb239fe8081962414ef36dedca7780b9f7e637ef40a1871aea6b9da2"
+  },
+  {
+   "member": "WiFlow/birdviewplus/S05/A17/csi/frame091.pt",
+   "method": 8,
+   "compressed": 871147,
+   "size": 1460385,
+   "offset": 30339091676,
+   "sha256": "0d6ee7b6916feb6dbc6ec513b8eb045e00b1f0f7fe61a05dffb2422f15564eea"
+  },
+  {
+   "member": "WiFlow/birdviewplus/S05/A17/flow/frame090.pt",
+   "method": 8,
+   "compressed": 10660,
+   "size": 173217,
+   "offset": 30417196219,
+   "sha256": "5971e5c7bc6940925f085e79d995face7e6467866b7422d388f9d3b36e09939a"
+  }
+ ]
+}
