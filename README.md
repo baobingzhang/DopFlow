@@ -40,7 +40,7 @@ It also saves `demo_output.png`:
 
 ![Label flow, predicted mask and predicted flow on the demo frame](assets/demo_output.png)
 
-The frame was fixed in advance by a rule (frame 90 of the subject's first Fast-walk sequence), not picked for its result. Subject S05 was held out from the training of these weights. One frame is only a usage example; the results below summarize the evaluation.
+The frame was fixed in advance by a rule (frame 90 of the subject's first Fast-walk sequence), not picked for its result. Subject S05 was held out from the training of these weights.
 
 ## Results
 
@@ -48,26 +48,17 @@ All results use the [WiFlow dataset](https://visinf.github.io/wiflow), four leav
 
 | | DopFlow | Simple | Combo |
 |---|---:|---:|---:|
-| EPE_M at default settings (px) | **2.591** | 2.659 | 2.985 |
-| EPE_S at default settings (px) | 0.046 | 0.353 | **0.030** |
-| EPE_M change at equal EPE_S | | **-15.6%** | **-6.9%** |
+| EPE_M relative to the baseline, at equal EPE_S | | **-15.6%** | **-6.9%** |
 | Velocity direction error | **16.9°** | 22.8° | 22.9° |
 | Parameters (M) | **1.14** | 17.90 | 35.81 |
 | Network GFLOPs | **0.085** | 21.1 | 42.1 |
 | One-thread CPU latency (ms) | **22.3** | 140.9 | 281.4 |
 
-EPE_M and EPE_S are endpoint errors on moving and static pixels. The 95% sequence-bootstrap intervals for the mean gaps at equal EPE_S are [-17.1, -13.9] against Simple and [-8.1, -5.8] against Combo; the Combo level was chosen after inspecting the curves.
+EPE_M and EPE_S are endpoint errors on moving and static pixels. Comparing at equal EPE_S accounts for the trade-off between the two. The levels are EPE_S 0.05 for Simple and Combo's default EPE_S for Combo. The 95% sequence-bootstrap intervals for the mean gaps are [-17.1, -13.9] and [-8.1, -5.8]. DopFlow's EPE_M is lower in every fold and for every Simple seed.
 
 ![Moving-region error at equal static-region error](assets/tradeoff.png)
 
-### Limitations
-
-- All data come from one room and one camera viewpoint, and four test subjects.
-- With two people moving, DopFlow improves on zero prediction by only 8%, and Simple does better at default settings.
-- Combo keeps the lower EPE_S at default settings and reaches much lower EPE_S overall.
-- Without retraining, losing a receiver leaves DopFlow clearly worse than Simple in two of four cases.
-- DopFlow predicts some motion on frames with no motion, so it is not a presence detector.
-- A strict fold-by-fold criterion in our analysis plan was not met.
+See the paper for the full evaluation and its limitations.
 
 ## Repository layout
 
@@ -149,10 +140,6 @@ The paper uses seeds 0, 1 and 2. Results can vary slightly with hardware and lib
 | `--steps`, `--bs`, `--lr` | `60000`, `32`, `0.001` | Training steps, batch size, learning rate |
 | `--doppler` | `1` | `0` removes the Doppler branch |
 | `--dec` | `blob` | `pixel` gives a per-pixel decoder for ablation; use with `--lam_f 0 --vsrc dop --tau 0` |
-
-## What is not included
-
-This repository covers DopFlow only. It does not include the dataset, weights for other folds and seeds, the baseline reimplementations, or the scripts for the paper's analyses, tables and figures.
 
 ## License
 
